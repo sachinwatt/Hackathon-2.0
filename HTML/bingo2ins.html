@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {box-sizing:border-box}
+        body {font-family: Verdana,sans-serif;}
+        .mySlides {display:none}
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        /* Caption text */
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+            height: 13px;
+            width: 13px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active {
+            background-color: #717171;
+        }
+
+        /* Fading animation */
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 2.5s;
+            animation-name: fade;
+            animation-duration: 3.5s;
+        }
+
+        @-webkit-keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+            .text {font-size: 11px}
+        }
+    </style>
+    <link rel="stylesheet" href="../dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../dist/css/bootstrap-theme.css">
+    <script src="../dist/js/bootstrap.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default na">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand"><center><font size="5">Bingo (Multiplayer mode)</font></center></a>
+
+        </div>
+        <ul class="nav navbar-nav">
+
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <h1><font color="#008b8b" size="6">Steps<br></font> </h1>
+        <p><font size="4">
+            1. Install Dropbox from https://www.dropbox.com/install<br>
+            2. Run the downloaded .exe file of Drop box and continue the setup process.<br>
+            3. Login with the same Drop box accont in both the player computers.<br>
+            4. There are two .cpp files , namely player1 and player2. Download these files in differnent computers respectively.<br>
+            The links are<br>
+            5.  For player1: Open the player1.cpp and go to line number 275 and 287 and  enter your Dropbox  storage path follwed by \\score.txt. <br>
+            Eg:C:\\Users\\Karthik\\Dropbox\\score.txt
+            6.  For player2: Open the player2.cpp and go to line number 264 and 275 and  enter your Dropbox  storage path follwed by \\score.txt.
+            Eg:C:\\Users\\Anubhaw\\Dropbox\\score.txt<br>
+            7.   Both players save the changes and run the file.<br>
+            8.   Toss will be conducted on player1's computer.<br>
+            9.    Enter your name.<br>
+            10. Press Enter to toss<br>
+            11.  Make your move by entering a number present on your bingo sheet.<br>
+            12.  Wait for the bot to make its move.The selected numbers will be striken out.<br>
+            13.  Enter 99 to see which numbers have been stricken out in a clear manner.<br>
+            14.  The one who completes 5 lines of numbers in the least possible moves wins !<br><br><br><br>
+
+        </font> </p>
+    </div>
+</div>
+<div class="slideshow-container">
+
+    <div class="mySlides fade">
+
+        <img src="..\\images\1.1.png" style="width:100%">
+
+    </div>
+
+    <div class="mySlides fade">
+
+        <img src="..\\images\1.2.png" style="width:100%">
+
+    </div>
+
+    <div class="mySlides fade">
+
+        <img src="..\\images\1.3.png" style="width:100%">
+
+    </div>
+    <div class="mySlides fade">
+
+        <img src="..\\images\1.4.png" style="width:100%">
+
+    </div>
+    <div class="mySlides fade">
+
+        <img src="..\\images\1.5.png" style="width:100%">
+
+    </div>
+    <div class="mySlides fade">
+
+        <img src="..\\images\1.6.png" style="width:100%">
+
+    </div>
+
+
+</div>
+<br>
+
+<div style="text-align:center">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span> <span class="dot"></span> <span class="dot"></span> <span class="dot"></span>
+</div>
+
+<script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex> slides.length) {slideIndex = 1}
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 3000); // Change image every 2 seconds
+    }
+</script>
+
+</body>
+</html>
